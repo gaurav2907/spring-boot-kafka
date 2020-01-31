@@ -45,5 +45,21 @@ public class KafkaConsumerConfig {
 		listener.setConsumerFactory(consumerConfig());
 		return listener;
 	}
+	@Bean
+	public ConsumerFactory<String, String> consumerConfig1() {
+		// TODO Auto-generated method stub
+		Map<String, Object> config = new HashMap<>();
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServer);
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "mygroupId");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config);
+	}
 
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory1() {
+		ConcurrentKafkaListenerContainerFactory<String, String> listener = new ConcurrentKafkaListenerContainerFactory<>();
+		listener.setConsumerFactory(consumerConfig1());
+		return listener;
+	}
 }

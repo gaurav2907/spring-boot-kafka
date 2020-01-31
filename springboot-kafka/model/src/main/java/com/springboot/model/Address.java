@@ -51,4 +51,12 @@ public class Address implements Serializable {
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
+
+	@Override
+	public String toString() {
+		return "Address [apartment=" + apartment + ", street=" + street + ", state=" + state + ", city=" + city
+				+ ", postCode=" + postCode + "]";
+	}
+	
+	
 }

@@ -9,7 +9,7 @@ public class Student implements Serializable {
 	private String studentId;
 	private String firstName;
 	private String lastName;
-	private String age;
+	private int age;
 	private Address address;
 
 	public String getStudentId() {
@@ -36,11 +36,11 @@ public class Student implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -51,4 +51,14 @@ public class Student implements Serializable {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", age="
+				+ age + ", address=" + address + "]";
+	}
+
+
+	
+	
 }
